@@ -1,4 +1,4 @@
-&#x09;The following guide is for installing the automated RTL to GDSII toolchain, OpenRoad Flow Scripts, targeting System Verilog to Silicon using the Skywater 130nm PDK. It assumes that you, like me, are complete beginners and know very little about the process behind semiconductor design. It is recommended to try the Docker Image process before a local installation as a Docker Image is portable, and easier to work with than a local installation. However, unresolvable image and system incompatibilities may appear during design flow testing, and a local installation will be necessary. 
+&#x09;The following guide is for installing the automated RTL to GDSII toolchain, OpenRoad Flow Scripts, targeting System Verilog to Silicon using the Skywater 130nm PDK. It assumes that you, like me, are complete beginners and know very little about the process behind semiconductor design. It is recommended to try the Docker Image process before a local installation as a Docker Image is portable, and easier to work with than a local installation. However, unresolvable image and system incompatibilities may appear during design flow testing, and a local installation will be necessary.
 
 
 
@@ -76,7 +76,7 @@ PREREQUISITES
 
 
 
-&#x09;	docker run hello-world
+&#x09;	sudo docker run hello-world
 
 &#x09;
 
@@ -92,7 +92,7 @@ ORFS LOCAL INSTALLATION
 
 
 
-1\. Using WSL, navigate into the folder you want the cloned ORFS repository to reside in. Run the following command to clone ORFS the repository:
+1\. Run the following command to clone ORFS the repository:
 
 
 
@@ -116,13 +116,15 @@ ORFS LOCAL INSTALLATION
 
 
 
-&#x09;sudo ./DependencyInstaller.sh -all 
+&#x09;sudo ./DependencyInstaller.sh -all
 
 
 
-4\. Once the dependency install is finished We will now build the ORFS locally using:
+4\. Once the dependency install is finished, we will go back a folder and build the ORFS locally.
 
+&#x09;
 
+&#x09;cd ..
 
 &#x09;sudo ./build\_openroad.sh -o
 
@@ -132,7 +134,7 @@ ORFS LOCAL INSTALLATION
 
 &#x09;
 
-&#x09;sudo ./build\_openroad.sh --threads N
+&#x09;sudo ./build\_openroad.sh -o --threads N
 
 
 
@@ -154,7 +156,7 @@ ORFS LOCAL INSTALLATION
 
 
 
-6\. The design flow will be tested now using the following commands. Running "make" in the "flow" folder should yield the RTL to GDSII design overview. Make 
+6\. The design flow will be tested now using the following commands. Running "make" in the "flow" folder should yield the RTL to GDSII design overview using an example file. Make
 
 &#x20;  sure there are no errors in the terminal after running the make command!
 
@@ -167,4 +169,6 @@ ORFS LOCAL INSTALLATION
 
 
 7\. If everything is working correctly, you should see a chart with log, ext, elapsed/s, Peak, Memoryu, and shalsum result as headings.
+
+
 
