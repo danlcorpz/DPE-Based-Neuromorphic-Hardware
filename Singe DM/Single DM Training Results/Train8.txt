@@ -1,0 +1,54 @@
+Train 8: Tried to get back to a baseline, 12 dm, 4 refract and 12 leak. 
+
+Tried to remove Q weight by setting to zero. However, negative reinforcement from other neurons pushed weight negative downward unconstrained, leading to sharp -31.
+
+Additionally, Q weights wrapped around in the python model, leading to the domination we see here
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 12 -> 2 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 0.0]
+
+Training DPE_Train (2->5)  epochs=30 lr=0.001 beta=0.95 seed=2
+  epoch   1/30  loss=2.0561
+  epoch  10/30  loss=1.3746
+  epoch  20/30  loss=1.3781
+  epoch  30/30  loss=1.3856
+
+Per-neuron learned weights (row=neuron  [UP,DN):
+   neuron 0: +0.208 +0.090
+   neuron 1: +0.204 +0.080
+   neuron 2: +0.177 +0.128
+   neuron 3: +0.145 +0.140
+   neuron 4: -4.812 -7.057
+
+   angular spread: min pairwise angle = 2.1 deg, mean |cos| = 0.938
+   *** COLLAPSED ***
+quantize: scale=4.3930  int range=[-31,1]  shape=(5, 2)
+Flat HW weight list (len 10): [1, 1, 1, 1, -21, 0, 0, 1, 1, -31]
+
+Using configured thresholds: [50, 50, 50, 50, 50]
+Evaluating on Net: (leak=12, refrac=4, dm step=12...
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q
+     N        27       0       0       0   44218
+     S         2       0       0       0    1835
+     V         0       0       0       0    3220
+     F         0       0       0       0     388
+     Q         0       0       0       0       7
+
+Per-class accuracy (true positive rate):
+   N: 27/44245 = 0.0006
+   S: 0/1837 = 0.0000
+   V: 0/3220 = 0.0000
+   F: 0/388 = 0.0000
+   Q: 7/7 = 1.0000
+
+Overall: 34/49697 = 0.0007
+Macro-recall (class-balanced): 0.2001

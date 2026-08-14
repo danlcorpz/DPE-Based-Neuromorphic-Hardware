@@ -1,0 +1,48 @@
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 80/12 -> 4 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 0.1]
+
+Training DPE_Train (4->5)  epochs=30 lr=0.001 beta=0.95 seed=2
+  epoch   1/30  loss=2.5605
+  epoch  10/30  loss=1.3524
+  epoch  20/30  loss=1.3360
+  epoch  30/30  loss=1.3444
+
+Per-neuron learned weights (row=neuron  [UP,DN):
+   neuron 0: +0.436 +0.047 +0.097 +0.032
+   neuron 1: +0.087 +0.133 +0.155 +0.074
+   neuron 2: -0.039 +0.209 +0.166 +0.103
+   neuron 3: +0.544 +0.220 +0.045 -0.092
+   neuron 4: -0.315 -0.672 -1.174 -0.208
+
+   angular spread: min pairwise angle = 17.1 deg, mean |cos| = 0.583
+   good spread.
+quantize: scale=26.4060  int range=[-31,14]  shape=(5, 4)
+Flat HW weight list (len 20): [12, 2, -1, 14, -8, 1, 4, 6, 6, -18, 3, 4, 4, 1, -31, 1, 2, 3, -2, -5]
+
+Using configured thresholds: [50, 50, 50, 50, 50]
+Evaluating on Net: (leak=12, refrac=4, dm step coarse =80, dm step fine =12)
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q
+     N     20366     500   23379       0       0
+     S      1349      54     434       0       0
+     V      1947      94    1177       2       0
+     F        88       5     295       0       0
+     Q         4       0       3       0       0
+
+Per-class accuracy (true positive rate):
+   N: 20366/44245 = 0.4603
+   S: 54/1837 = 0.0294
+   V: 1177/3220 = 0.3655
+   F: 0/388 = 0.0000
+   Q: 0/7 = 0.0000
+
+Overall: 21597/49697 = 0.4346
+Macro-recall (class-balanced): 0.1710

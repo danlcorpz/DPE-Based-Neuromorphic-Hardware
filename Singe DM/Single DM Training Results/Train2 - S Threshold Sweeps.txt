@@ -1,0 +1,77 @@
+
+Sweeping S thresholds:
+	using previous run 4 thresholds( 50, 40, 40, 30, 50) sweep S thresholds
+	prediction: S dominates both V and F below thirty, goes away at 30, practically zero past 40
+	Prediction true. S becomes dominant neuron as lowest threshold goes away after being matched
+
+	
+	--- run 1/6 | weights=from_file | thr=[50, 10, 40, 30, 50]->raw[50, 10, 40, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N        0   44233       0       0      12
+    S        0    1837       0       0       0
+    V        0    3220       0       0       0
+    F        0     388       0       0       0
+    Q        0       6       0       0       1
+per-class TP: N=0.000  S=1.000  V=0.000  F=0.000  Q=0.143
+overall: 0.0370
+
+--- run 2/6 | weights=from_file | thr=[50, 20, 40, 30, 50]->raw[50, 20, 40, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N       17   44208       0       0      20
+    S        1    1836       0       0       0
+    V        1    3218       0       0       1
+    F        0     388       0       0       0
+    Q        0       6       0       0       1
+per-class TP: N=0.000  S=0.999  V=0.000  F=0.000  Q=0.143
+overall: 0.0373
+
+--- run 3/6 | weights=from_file | thr=[50, 30, 40, 30, 50]->raw[50, 30, 40, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N     4368   36690    3155       2      30
+    S      400    1344      93       0       0
+    V      202    2953      60       0       5
+    F        4     380       4       0       0
+    Q        0       6       0       0       1
+per-class TP: N=0.099  S=0.732  V=0.019  F=0.000  Q=0.143
+overall: 0.1162
+
+--- run 4/6 | weights=from_file | thr=[50, 40, 40, 30, 50]->raw[50, 40, 40, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    29458    3920    8550    2280      37
+    S     1517     109      70     141       0
+    V     1254     527    1013     380      46
+    F       19      44     324       1       0
+    Q        0       1       4       0       2
+per-class TP: N=0.666  S=0.059  V=0.315  F=0.003  Q=0.286
+overall: 0.6154
+
+--- run 5/6 | weights=from_file | thr=[50, 50, 40, 30, 50]->raw[50, 50, 40, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    22581       0   17507    4129      28
+    S      794       0     857     186       0
+    V      804       0    1946     460      10
+    F       11       0     372       5       0
+    Q        0       0       4       1       2
+per-class TP: N=0.510  S=0.000  V=0.604  F=0.013  Q=0.286
+overall: 0.4937
+
+--- run 6/6 | weights=from_file | thr=[50, 60, 40, 30, 50]->raw[50, 60, 40, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    22563       0   17507    4147      28
+    S      794       0     857     186       0
+    V      804       0    1946     460      10
+    F       11       0     372       5       0
+    Q        0       0       4       1       2
+per-class TP: N=0.510  S=0.000  V=0.604  F=0.013  Q=0.286
+overall: 0.4933
+
+============================================================
+Best minority-class run:
+  run 1/6 | weights=from_file | thr=[50, 10, 40, 30, 50]->raw[50, 10, 40, 30, 50] leak=12 refrac=2
+  (mean S/V/F TP = 0.333, overall = 0.037)

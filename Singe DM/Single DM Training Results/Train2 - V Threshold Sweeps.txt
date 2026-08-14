@@ -1,0 +1,80 @@
+
+Sweeping V Thresholds
+	Use best F thres, 30, to keep 20 pt offset, range: 10 - 60
+	Notice between runs 3 to 4, V accuracy is obliterated, F goes up 0.3%, and at the end of runs 4 and 5,
+	F is now on top, after it is now the lower threshold
+	It seems between V and F, whoever has lower threshold wins more, when they are the same, V dominates at 90% 	vs 0%
+	Inverse relationship?
+	Run 4 has best overall accuracy, use for S sweeps
+
+--- run 1/6 | weights=from_file | thr=[50, 40, 10, 30, 50]->raw[50, 40, 10, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N     2067     988   41173       0      17
+    S        8       4    1825       0       0
+    V        0       0    3219       0       1
+    F        0       0     388       0       0
+    Q        0       0       6       0       1
+per-class TP: N=0.047  S=0.002  V=1.000  F=0.000  Q=0.143
+overall: 0.1065
+
+--- run 2/6 | weights=from_file | thr=[50, 40, 20, 30, 50]->raw[50, 40, 20, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N     8728    1616   33877       2      22
+    S      111      20    1705       1       0
+    V       27       0    3192       0       1
+    F        6       0     382       0       0
+    Q        0       0       6       0       1
+per-class TP: N=0.197  S=0.011  V=0.991  F=0.000  Q=0.143
+overall: 0.2403
+
+--- run 3/6 | weights=from_file | thr=[50, 40, 30, 30, 50]->raw[50, 40, 30, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    15991    2022   26032     174      26
+    S      324      43    1456      14       0
+    V      209       1    3008       1       1
+    F        8       1     379       0       0
+    Q        0       0       6       0       1
+per-class TP: N=0.361  S=0.023  V=0.934  F=0.000  Q=0.143
+overall: 0.3832
+
+--- run 4/6 | weights=from_file | thr=[50, 40, 40, 30, 50]->raw[50, 40, 40, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    29458    3920    8550    2280      37
+    S     1517     109      70     141       0
+    V     1254     527    1013     380      46
+    F       19      44     324       1       0
+    Q        0       1       4       0       2
+per-class TP: N=0.666  S=0.059  V=0.315  F=0.003  Q=0.286
+overall: 0.6154
+
+--- run 5/6 | weights=from_file | thr=[50, 40, 50, 30, 50]->raw[50, 40, 50, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    26227    4048       2   13934      34
+    S     1499     113       0     225       0
+    V     1110     873      10    1202      25
+    F       16      66       0     306       0
+    Q        0       2       0       4       1
+per-class TP: N=0.593  S=0.062  V=0.003  F=0.789  Q=0.143
+overall: 0.5364
+
+--- run 6/6 | weights=from_file | thr=[50, 40, 60, 30, 50]->raw[50, 40, 60, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    26092    3781       0   14338      34
+    S     1488     112       0     237       0
+    V     1100     782       0    1321      17
+    F       16      57       0     315       0
+    Q        0       1       0       5       1
+per-class TP: N=0.590  S=0.061  V=0.000  F=0.812  Q=0.143
+overall: 0.5336
+
+============================================================
+Best minority-class run:
+  run 2/6 | weights=from_file | thr=[50, 40, 20, 30, 50]->raw[50, 40, 20, 30, 50] leak=12 refrac=2
+  (mean S/V/F TP = 0.334, overall = 0.240)
+

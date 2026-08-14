@@ -1,0 +1,66 @@
+Ninth Train: Q Weights set to 0, same parameters as last time
+
+Interestingly, there are now two highly distinguishable classes, N and V, both above 80%!
+
+Perhaps we can tease out the rest with per class thresholds.
+
+Idea: remove Q from Training entirely. Too infrequent at 0.01% to make any meaningful difference, but would require RTL and Python Changes. However, it is still a main class and doing so changes RTL and moves us into new territory.
+Ideally, we would keep the fifth neuron (as removing Q from our training data renders it obsolete), but keep the weight to basically zero to maintain RTL status quo.
+
+To justify removing Q from training, we would need to show (probably research paper) that it makes up such a small portion of data that removing it would result in benefits that far outweigh the costs.
+
+In my opinion, removing Q would be a drastic departure from current work, but potentially yield incredible results. 
+Issue now is that inverse frequency based weights as well as the large classes work against the Q weight, and after a training session, it is far below the other weights, which, when quantized, results in the 4 classes looking roughly the same, and the Q class still being very negative.
+
+While the results are promising, we should explore every other option to minimize qs influence without removing it completely. One option being to change inverse frequency to effective number of samples reweighting (Cui et al 2019) Per neuron weight quantization, and (probably not rn) Independent per class loss instead of SoftMax.
+
+I like this one, lets run some threshold sweeps on it first
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 12 -> 2 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 0.1]
+
+Training DPE_Train (2->5)  epochs=30 lr=0.001 beta=0.95 seed=2
+  epoch   1/30  loss=2.0560
+  epoch  10/30  loss=1.3742
+  epoch  20/30  loss=1.3789
+  epoch  30/30  loss=1.3871
+
+Per-neuron learned weights (row=neuron  [UP,DN):
+   neuron 0: +0.208 +0.090
+   neuron 1: +0.204 +0.080
+   neuron 2: +0.177 +0.128
+   neuron 3: +0.145 +0.140
+   neuron 4: -4.810 -7.053
+
+   angular spread: min pairwise angle = 2.2 deg, mean |cos| = 0.938
+   *** COLLAPSED ***
+quantize: scale=4.3955  int range=[-31,1]  shape=(5, 2)
+Flat HW weight list (len 10): [1, 1, 1, 1, -21, 0, 0, 1, 1, -31]
+
+Using configured thresholds: [50, 50, 50, 50, 50]
+Evaluating on Net: (leak=12, refrac=4, dm step=12...
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q
+     N     36746       0    7499       0       0
+     S      1741       0      96       0       0
+     V       409       0    2811       0       0
+     F        15       0     373       0       0
+     Q         2       0       5       0       0
+
+Per-class accuracy (true positive rate):
+   N: 36746/44245 = 0.8305
+   S: 0/1837 = 0.0000
+   V: 2811/3220 = 0.8730
+   F: 0/388 = 0.0000
+   Q: 0/7 = 0.0000
+
+Overall: 39557/49697 = 0.7960
+Macro-recall (class-balanced): 0.3407

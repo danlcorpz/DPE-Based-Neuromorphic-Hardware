@@ -1,0 +1,52 @@
+Train 10 keeps all previous changes, including the seed, clamp, and q weight initial minimization. However, weight decay is added at a rate of 0.5. We can see this properly mitigates the max negative Q weight, and it produces a matrix similar to 6.5
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 12 -> 2 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 0.1]
+
+Training DPE_Train (2->5)  epochs=30 lr=0.001 beta=0.95 seed=2
+  epoch   1/30  loss=2.0702
+  epoch  10/30  loss=1.3823
+  epoch  20/30  loss=1.3393
+  epoch  30/30  loss=1.3435
+
+Per-neuron learned weights (row=neuron  [UP,DN):
+   neuron 0: +0.193 +0.049
+   neuron 1: +0.189 +0.046
+   neuron 2: +0.251 -0.257
+   neuron 3: +0.154 +0.108
+   neuron 4: -0.027 -0.029
+
+   angular spread: min pairwise angle = 0.7 deg, mean |cos| = 0.674
+   *** COLLAPSED ***
+quantize: scale=120.5346  int range=[-31,30]  shape=(5, 2)
+Flat HW weight list (len 10): [23, 23, 30, 19, -3, 6, 6, -31, 13, -3]
+
+Using configured thresholds: [50, 50, 50, 50, 50]
+Evaluating on Net: (leak=12, refrac=4, dm step=12...
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q
+     N     26991       0   12432    4822       0
+     S      1336       0     420      81       0
+     V      1924       0     653     643       0
+     F       175       0      11     202       0
+     Q         4       0       2       1       0
+
+Per-class accuracy (true positive rate):
+   N: 26991/44245 = 0.6100
+   S: 0/1837 = 0.0000
+   V: 653/3220 = 0.2028
+   F: 202/388 = 0.5206
+   Q: 0/7 = 0.0000
+
+Overall: 27846/49697 = 0.5603
+Macro-recall (class-balanced): 0.2667
+
+

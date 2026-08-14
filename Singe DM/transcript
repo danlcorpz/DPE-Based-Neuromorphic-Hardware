@@ -1,0 +1,87 @@
+# do SCNCHN4_RUN.do
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:13:39 on Jul 28,2026
+# vlog DM4.sv NEURON4.sv DPE4.sv WTA4.sv SCNCHN4.sv SCNCHN4_TB.sv 
+# -- Compiling module DeltaModulator4
+# -- Compiling module SynapseUnit
+# -- Compiling module Accumulator
+# ** Warning: NEURON4.sv(24): (vlog-13314) Defaulting port 'syn_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# -- Compiling module DotProductEngine4
+# ** Warning: DPE4.sv(16): (vlog-13314) Defaulting port 'weights' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: DPE4.sv(17): (vlog-13314) Defaulting port 'thresholds' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# -- Compiling module WinnerTakeAll4
+# -- Compiling module ScanChainWrapper4
+# -- Compiling module SCNCHN4_TB
+# 
+# Top level modules:
+# 	SCNCHN4_TB
+# End time: 17:13:39 on Jul 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# vsim -voptargs="+acc" work.SCNCHN4_TB 
+# Start time: 17:13:39 on Jul 28,2026
+# Loading sv_std.std
+# Loading work.SCNCHN4_TB
+# Loading work.ScanChainWrapper4
+# Loading work.DeltaModulator4
+# Loading work.DotProductEngine4
+# Loading work.WinnerTakeAll4
+# Loading work.SynapseUnit
+# Loading work.Accumulator
+# .list
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
+# ok: sys_en high after load
+# -- rising ramp (expect neuron 0) --
+#   t=1295000 cyc=1 ecg= 200 spk=00 fire=00000 valid=0 win=7
+#   t=1305000 cyc=2 ecg= 270 spk=01 fire=00000 valid=0 win=7
+#   t=1315000 cyc=3 ecg= 340 spk=00 fire=00000 valid=0 win=7
+#   t=1325000 cyc=4 ecg= 410 spk=01 fire=00000 valid=0 win=7
+#   t=1335000 cyc=5 ecg= 480 spk=00 fire=00001 valid=1 win=0
+#   t=1345000 cyc=6 ecg= 550 spk=01 fire=00000 valid=0 win=7
+#   t=1355000 cyc=7 ecg= 620 spk=00 fire=00000 valid=0 win=7
+#   t=1365000 cyc=8 ecg= 690 spk=01 fire=00000 valid=0 win=7
+#   t=1375000 cyc=9 ecg= 760 spk=00 fire=00000 valid=0 win=7
+#   t=1385000 cyc=10 ecg= 830 spk=01 fire=00000 valid=0 win=7
+#   t=1395000 cyc=11 ecg= 900 spk=00 fire=00001 valid=1 win=0
+#   t=1405000 cyc=12 ecg= 970 spk=01 fire=00000 valid=0 win=7
+#   t=1415000 cyc=13 ecg=1040 spk=00 fire=00000 valid=0 win=7
+#   t=1425000 cyc=14 ecg=1110 spk=01 fire=00000 valid=0 win=7
+#   t=1435000 cyc=15 ecg=1180 spk=00 fire=00000 valid=0 win=7
+#   t=1445000 cyc=16 ecg=1250 spk=01 fire=00000 valid=0 win=7
+#   t=1455000 cyc=17 ecg=1320 spk=00 fire=00001 valid=1 win=0
+#   t=1465000 cyc=18 ecg=1390 spk=01 fire=00000 valid=0 win=7
+#   t=1475000 cyc=19 ecg=1460 spk=00 fire=00000 valid=0 win=7
+#   t=1485000 cyc=20 ecg=1530 spk=01 fire=00000 valid=0 win=7
+#   t=1495000 cyc=21 ecg=1600 spk=00 fire=00000 valid=0 win=7
+# -- beat_clear pulsed --
+# -- falling ramp (expect neuron 1) --
+#   t=1525000 cyc=22 ecg=1600 spk=00 fire=00000 valid=0 win=7
+#   t=1535000 cyc=23 ecg=1530 spk=00 fire=00000 valid=0 win=7
+#   t=1545000 cyc=24 ecg=1460 spk=10 fire=00000 valid=0 win=7
+#   t=1555000 cyc=25 ecg=1390 spk=00 fire=00000 valid=0 win=7
+#   t=1565000 cyc=26 ecg=1320 spk=10 fire=00000 valid=0 win=7
+#   t=1575000 cyc=27 ecg=1250 spk=00 fire=00010 valid=1 win=1
+#   t=1585000 cyc=28 ecg=1180 spk=10 fire=00000 valid=0 win=7
+#   t=1595000 cyc=29 ecg=1110 spk=00 fire=00000 valid=0 win=7
+#   t=1605000 cyc=30 ecg=1040 spk=10 fire=00000 valid=0 win=7
+#   t=1615000 cyc=31 ecg= 970 spk=00 fire=00000 valid=0 win=7
+#   t=1625000 cyc=32 ecg= 900 spk=10 fire=00000 valid=0 win=7
+#   t=1635000 cyc=33 ecg= 830 spk=00 fire=00010 valid=1 win=1
+#   t=1645000 cyc=34 ecg= 760 spk=10 fire=00000 valid=0 win=7
+#   t=1655000 cyc=35 ecg= 690 spk=00 fire=00000 valid=0 win=7
+#   t=1665000 cyc=36 ecg= 620 spk=10 fire=00000 valid=0 win=7
+#   t=1675000 cyc=37 ecg= 550 spk=00 fire=00000 valid=0 win=7
+#   t=1685000 cyc=38 ecg= 480 spk=10 fire=00000 valid=0 win=7
+#   t=1695000 cyc=39 ecg= 410 spk=00 fire=00010 valid=1 win=1
+#   t=1705000 cyc=40 ecg= 340 spk=10 fire=00000 valid=0 win=7
+#   t=1715000 cyc=41 ecg= 270 spk=00 fire=00000 valid=0 win=7
+#   t=1725000 cyc=42 ecg= 200 spk=10 fire=00000 valid=0 win=7
+# ========================================
+# saw_fire0 (UP/neuron0)  = 1
+# saw_fire1 (DOWN/neuron1)= 1
+# RESULT: PASS
+# ========================================
+# ** Note: $finish    : SCNCHN4_TB.sv(133)
+#    Time: 1725 ns  Iteration: 1  Instance: /SCNCHN4_TB
+# End time: 17:13:39 on Jul 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

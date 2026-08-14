@@ -1,0 +1,49 @@
+Fifth train: 50 flat Thresholds, leak=4, refrac=2, dm step=4, seed 2
+Moved seed to 2 to track issue
+Added RTL clamping in SV and Python; Q previously wrapped around from -543 to 481
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 4 -> 2 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 50.0]
+
+Training DPE_Train (2->5)  epochs=30 lr=0.001 beta=0.95 seed=2
+  epoch   1/30  loss=2.7936
+  epoch  10/30  loss=1.3251
+  epoch  20/30  loss=1.2855
+  epoch  30/30  loss=1.2817
+
+Per-neuron learned weights (row=neuron  [UP,DN):
+   neuron 0: +0.189 -0.026
+   neuron 1: +0.188 -0.038
+   neuron 2: +0.257 -0.729
+   neuron 3: +0.148 +0.079
+   neuron 4: +0.154 -0.985
+
+   angular spread: min pairwise angle = 3.6 deg, mean |cos| = 0.565
+   *** COLLAPSED ***
+quantize: scale=31.4759  int range=[-31,8]  shape=(5, 2)
+Flat HW weight list (len 10): [6, 6, 8, 5, 5, -1, -1, -23, 2, -31]
+
+Using configured thresholds: [50, 50, 50, 50, 50]
+Evaluating on Net: (leak=3, refrac=2, dm step=4...
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q
+     N     11460       1   15838   12649    4297
+     S       818       0     414     574      31
+     V        64       0    2613     167     376
+     F         1       0      24      22     341
+     Q         0       0       6       1       0
+
+Per-class accuracy (true positive rate):
+   N: 11460/44245 = 0.2590
+   S: 0/1837 = 0.0000
+   V: 2613/3220 = 0.8115
+   F: 22/388 = 0.0567
+   Q: 0/7 = 0.0000

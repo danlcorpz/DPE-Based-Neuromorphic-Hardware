@@ -1,0 +1,62 @@
+EPOCHS           = 30
+LEARNING_RATE    = 1e-3
+BATCH_SIZE       = 128
+CLASS_WEIGHT_CAP = 25.0
+WEIGHT_DECAY     = 0
+DIVERSITY_WEIGHT = 0.0
+BETA             = 0.95
+SEED             = 1
+DM_STEP_COARSE   = 80
+DM_STEP_FINE     = 12
+EVAL_THRESHOLDS  = [50, 50, 50, 50, 50]
+EVAL_LEAK_RATE   = 12
+EVAL_REFRACTORY  = 4
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 80/12 -> 4 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 0.1]
+
+Training DPE_Train (4->5)  epochs=30 lr=0.001 beta=0.95 seed=1
+  epoch   1/30  loss=3.2407
+  epoch  10/30  loss=1.3404
+  epoch  20/30  loss=1.3867
+  epoch  30/30  loss=1.3675
+
+Per-neuron learned weights (row=neuron  [UP,DN):
+   neuron 0: +0.390 +0.028 +0.114 +0.079
+   neuron 1: -0.012 +0.100 +0.205 +0.087
+   neuron 2: -0.737 +0.467 +0.240 +0.097
+   neuron 3: +0.546 +0.012 +0.051 +0.109
+   neuron 4: -0.299 -0.256 -0.144 -0.234
+
+   angular spread: min pairwise angle = 11.1 deg, mean |cos| = 0.550
+   PARTIAL collapse.
+quantize: scale=42.0581  int range=[-31,23]  shape=(5, 4)
+Flat HW weight list (len 20): [16, 0, -31, 23, -13, 1, 4, 20, 0, -11, 5, 9, 10, 2, -6, 3, 4, 4, 5, -10]
+
+Using configured thresholds: [50, 50, 50, 50, 50]
+Evaluating on Net: (leak=12, refrac=4, dm step coarse =80, dm step fine =12)
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q
+     N      3549   14276   26254     166       0
+     S       327     893     616       1       0
+     V       434     624    2148      14       0
+     F         8      18     361       1       0
+     Q         0       0       7       0       0
+
+Per-class accuracy (true positive rate):
+   N: 3549/44245 = 0.0802
+   S: 893/1837 = 0.4861
+   V: 2148/3220 = 0.6671
+   F: 1/388 = 0.0026
+   Q: 0/7 = 0.0000
+
+Overall: 6591/49697 = 0.1326
+Macro-recall (class-balanced): 0.2472
