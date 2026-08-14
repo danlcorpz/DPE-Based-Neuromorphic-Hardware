@@ -1,0 +1,186 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/sidew/OneDrive/Desktop/LAB/RESEARCH/V4 Maximus
+vAccumulator
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1785276819
+!i10b 1
+!s100 0K;]6hOeXmRWG3UX68HOG3
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+ITn7gzf:NSnATl6flSK1DT2
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+Z5 w1785180746
+Z6 8NEURON4.sv
+Z7 FNEURON4.sv
+!i122 0
+L0 12 73
+Z8 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z9 !s108 1785276819.000000
+!s107 SCNCHN4_TB.sv|SCNCHN4.sv|WTA4.sv|DPE4.sv|NEURON4.sv|DM4.sv|
+Z10 !s90 DM4.sv|NEURON4.sv|DPE4.sv|WTA4.sv|SCNCHN4.sv|SCNCHN4_TB.sv|
+!i113 1
+Z11 tCvgOpt 0
+n@accumulator
+vDeltaModulator4
+R1
+R2
+!i10b 1
+!s100 aiYbOaMc@Uz`eB=;<;1e@0
+R3
+I<F<@_a`ROMDK2E851KAa82
+R4
+S1
+R0
+w1785180733
+8DM4.sv
+FDM4.sv
+!i122 0
+L0 1 53
+R8
+r1
+!s85 0
+31
+R9
+Z12 !s107 SCNCHN4_TB.sv|SCNCHN4.sv|WTA4.sv|DPE4.sv|NEURON4.sv|DM4.sv|
+R10
+!i113 1
+R11
+n@delta@modulator4
+vDotProductEngine4
+R1
+R2
+!i10b 1
+!s100 [NE=>b=mT:Y:KhV_li=f]0
+R3
+I5?e3V`Jn_I]HVeA<lN0F81
+R4
+S1
+R0
+w1785175282
+8DPE4.sv
+FDPE4.sv
+!i122 0
+L0 1 73
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
+n@dot@product@engine4
+vScanChainWrapper4
+R1
+R2
+!i10b 1
+!s100 CbzGXgle9MFYzbS<Hof[f1
+R3
+I1CBYL]N_FjQHYB4R6<jNS3
+R4
+S1
+R0
+w1785180772
+8SCNCHN4.sv
+FSCNCHN4.sv
+!i122 0
+L0 1 116
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
+n@scan@chain@wrapper4
+vSCNCHN4_TB
+R1
+R2
+!i10b 1
+!s100 _Pl3>k5ShFHXiiNCoDi:L1
+R3
+I:]GodYOUP_YzY43>R>RJb2
+R4
+S1
+R0
+w1785180830
+8SCNCHN4_TB.sv
+FSCNCHN4_TB.sv
+!i122 0
+L0 7 129
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
+n@s@c@n@c@h@n4_@t@b
+vSynapseUnit
+R1
+R2
+!i10b 1
+!s100 5kJ5V3`=6UUS0@OU435^O1
+R3
+IA@>o77EbL8LmaiI4P0Y:N0
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 1 10
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
+n@synapse@unit
+vWinnerTakeAll4
+R1
+R2
+!i10b 1
+!s100 maYJO7K[^6Bdd75C[:>:X0
+R3
+I4ZQTGV@^gJKN3B0TbVi?:1
+R4
+S1
+R0
+w1785174047
+8WTA4.sv
+FWTA4.sv
+!i122 0
+L0 1 29
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
+n@winner@take@all4

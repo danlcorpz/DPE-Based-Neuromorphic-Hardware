@@ -1,0 +1,52 @@
+First Double DM Run:
+
+Promising! Untuned, it certainly pulls its weight in discrimination. N is almost completely classified and F is too. However, the weights are certainly concerning, 2 neurons are sitting at 1 1. and there are negative extrema blocking the others from meaningful weight distinction. Ill rerun with 0.5 weight decay before reevaluating. 
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 80/12 -> 4 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 0.1]
+
+Training DPE_Train (4->5)  epochs=30 lr=0.001 beta=0.95 seed=0
+  epoch   1/30  loss=2.6613
+  epoch  10/30  loss=1.2312
+  epoch  20/30  loss=1.1858
+  epoch  30/30  loss=1.1446
+
+Per-neuron learned weights (row=neuron  [UP,DN):
+   neuron 0: -0.068 +0.305 +0.111 +0.089
+   neuron 1: -0.214 -1.115 +0.161 +0.269
+   neuron 2: -1.762 +0.660 +0.136 +0.138
+   neuron 3: +0.096 +0.425 -0.262 +0.146
+   neuron 4: -5.047 -5.002 -6.891 -6.536
+
+   angular spread: min pairwise angle = 37.1 deg, mean |cos| = 0.420
+   good spread.
+quantize: scale=4.4984  int range=[-31,3]  shape=(5, 4)
+Flat HW weight list (len 20): [0, -1, -8, 0, -23, 1, -5, 3, 2, -23, 1, 1, 1, -1, -31, 0, 1, 1, 1, -29]
+
+Using configured thresholds: [50, 50, 50, 50, 50]
+Evaluating on Net: (leak=12, refrac=4, dm step coarse =80, dm step fine =12)
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q
+     N     43706       0      59     480       0
+     S      1835       0       1       1       0
+     V      2841       0      52     327       0
+     F        95       0      13     280       0
+     Q         6       0       1       0       0
+
+Per-class accuracy (true positive rate):
+   N: 43706/44245 = 0.9878
+   S: 0/1837 = 0.0000
+   V: 52/3220 = 0.0161
+   F: 280/388 = 0.7216
+   Q: 0/7 = 0.0000
+
+Overall: 44038/49697 = 0.8861
+Macro-recall (class-balanced): 0.3451

@@ -1,0 +1,50 @@
+Fourth train: 50 flat Thresholds, leak=4, refrac=2, dm step=4, seed =1 
+ONLY CHANGE WAS CHANGING SEED TO 1 FROM 0
+We see here an extreme specialization, a problem
+
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 4 -> 2 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 50.0]
+
+Training DPE_Train (2->5)  epochs=30 lr=0.001 beta=0.95 seed=1
+  epoch   1/30  loss=2.6002
+  epoch  10/30  loss=1.4566
+  epoch  20/30  loss=1.4756
+  epoch  30/30  loss=1.4982
+
+Per-neuron learned weights (row=neuron  [UP,DN):
+   neuron 0: +0.083 +0.107
+   neuron 1: -1.007 +0.160
+   neuron 2: -0.278 +0.152
+   neuron 3: -0.200 +0.140
+   neuron 4: -0.896 -3.560
+
+   angular spread: min pairwise angle = 6.3 deg, mean |cos| = 0.513
+   PARTIAL collapse.
+quantize: scale=8.7081  int range=[-31,1]  shape=(5, 2)
+Flat HW weight list (len 10): [1, -9, -2, -2, -8, 1, 1, 1, 1, -31]
+
+Using configured thresholds: [50, 50, 50, 50, 50]
+Evaluating on Net: (leak=3, refrac=2, dm step=4...
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q
+     N         0      52       0       0   44193
+     S         0       0       0       0    1837
+     V         0       1       0       0    3219
+     F         0       1       0       0     387
+     Q         0       1       0       0       6
+
+Per-class accuracy (true positive rate):
+   N: 0/44245 = 0.0000
+   S: 0/1837 = 0.0000
+   V: 0/3220 = 0.0000
+   F: 0/388 = 0.0000
+   Q: 6/7 = 0.8571

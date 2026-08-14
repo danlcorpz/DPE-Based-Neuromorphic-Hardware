@@ -1,0 +1,120 @@
+# do SCNCHN6_RUN.do
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:18:06 on Aug 03,2026
+# vlog -reportprogress 300 DM6.sv NEURON6.sv DPE6.sv WTA6.sv SCNCHN6.sv SCNCHN6_TB.sv 
+# -- Compiling module DeltaModulator6
+# -- Compiling module SynapseUnit
+# -- Compiling module Accumulator
+# ** Warning: NEURON6.sv(24): (vlog-13314) Defaulting port 'syn_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# -- Compiling module DotProductEngine6
+# ** Warning: DPE6.sv(16): (vlog-13314) Defaulting port 'weights' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: DPE6.sv(17): (vlog-13314) Defaulting port 'thresholds' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# -- Compiling module WinnerTakeAll6
+# -- Compiling module ScanChainWrapper6
+# -- Compiling module SCNCHN6_TB
+# 
+# Top level modules:
+# 	SCNCHN6_TB
+# End time: 19:18:06 on Aug 03,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 3
+# vsim -voptargs="+acc" work.SCNCHN6_TB 
+# Start time: 19:18:06 on Aug 03,2026
+# Loading sv_std.std
+# Loading work.SCNCHN6_TB
+# Loading work.ScanChainWrapper6
+# Loading work.DeltaModulator6
+# Loading work.DotProductEngine6
+# Loading work.WinnerTakeAll6
+# Loading work.SynapseUnit
+# Loading work.Accumulator
+# .main_pane.list.interior.cs.body
+# window name waves does not exist
+# SCAN_W = 330 (TB)   dut.SCAN_W = 330
+# ok: sys_en high after load
+# -- rising ramp (expect L1 n0, then L2 n0) --
+#   cyc=1 ecg= 200 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=2 ecg= 250 spk=01 L1=00000 L2=00000 valid=0 win=7
+#   cyc=3 ecg= 300 spk=00 L1=00001 L2=00000 valid=0 win=7
+#   cyc=4 ecg= 350 spk=01 L1=00000 L2=00000 valid=0 win=7
+#   cyc=5 ecg= 400 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=6 ecg= 450 spk=01 L1=00000 L2=00000 valid=0 win=7
+#   cyc=7 ecg= 500 spk=00 L1=00001 L2=00000 valid=0 win=7
+#   cyc=8 ecg= 550 spk=01 L1=00000 L2=00001 valid=1 win=0
+#   cyc=9 ecg= 600 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=10 ecg= 650 spk=01 L1=00000 L2=00000 valid=0 win=7
+#   cyc=11 ecg= 700 spk=00 L1=00001 L2=00000 valid=0 win=7
+#   cyc=12 ecg= 750 spk=01 L1=00000 L2=00000 valid=0 win=7
+#   cyc=13 ecg= 800 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=14 ecg= 850 spk=01 L1=00000 L2=00000 valid=0 win=7
+#   cyc=15 ecg= 900 spk=00 L1=00001 L2=00000 valid=0 win=7
+#   cyc=16 ecg= 950 spk=01 L1=00000 L2=00001 valid=1 win=0
+#   cyc=17 ecg=1000 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=18 ecg=1050 spk=01 L1=00000 L2=00000 valid=0 win=7
+#   cyc=19 ecg=1100 spk=00 L1=00001 L2=00000 valid=0 win=7
+#   cyc=20 ecg=1150 spk=01 L1=00000 L2=00000 valid=0 win=7
+#   cyc=21 ecg=1200 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=22 ecg=1250 spk=01 L1=00000 L2=00000 valid=0 win=7
+#   cyc=23 ecg=1300 spk=00 L1=00001 L2=00000 valid=0 win=7
+#   cyc=24 ecg=1350 spk=01 L1=00000 L2=00001 valid=1 win=0
+#   cyc=25 ecg=1400 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=26 ecg=1450 spk=01 L1=00000 L2=00000 valid=0 win=7
+#   cyc=27 ecg=1500 spk=00 L1=00001 L2=00000 valid=0 win=7
+#   cyc=28 ecg=1550 spk=01 L1=00000 L2=00000 valid=0 win=7
+#   cyc=29 ecg=1600 spk=00 L1=00000 L2=00000 valid=0 win=7
+#    beat 1 majority-vote class = 0
+# -- beat_clear pulsed --
+# -- falling ramp (expect L1 n1, then L2 n1) --
+#   cyc=30 ecg=1600 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=31 ecg=1550 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=32 ecg=1500 spk=10 L1=00000 L2=00000 valid=0 win=7
+#   cyc=33 ecg=1450 spk=00 L1=00010 L2=00000 valid=0 win=7
+#   cyc=34 ecg=1400 spk=10 L1=00000 L2=00000 valid=0 win=7
+#   cyc=35 ecg=1350 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=36 ecg=1300 spk=10 L1=00000 L2=00000 valid=0 win=7
+#   cyc=37 ecg=1250 spk=00 L1=00010 L2=00000 valid=0 win=7
+#   cyc=38 ecg=1200 spk=10 L1=00000 L2=00010 valid=1 win=1
+#   cyc=39 ecg=1150 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=40 ecg=1100 spk=10 L1=00000 L2=00000 valid=0 win=7
+#   cyc=41 ecg=1050 spk=00 L1=00010 L2=00000 valid=0 win=7
+#   cyc=42 ecg=1000 spk=10 L1=00000 L2=00000 valid=0 win=7
+#   cyc=43 ecg= 950 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=44 ecg= 900 spk=10 L1=00000 L2=00000 valid=0 win=7
+#   cyc=45 ecg= 850 spk=00 L1=00010 L2=00000 valid=0 win=7
+#   cyc=46 ecg= 800 spk=10 L1=00000 L2=00010 valid=1 win=1
+#   cyc=47 ecg= 750 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=48 ecg= 700 spk=10 L1=00000 L2=00000 valid=0 win=7
+#   cyc=49 ecg= 650 spk=00 L1=00010 L2=00000 valid=0 win=7
+#   cyc=50 ecg= 600 spk=10 L1=00000 L2=00000 valid=0 win=7
+#   cyc=51 ecg= 550 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=52 ecg= 500 spk=10 L1=00000 L2=00000 valid=0 win=7
+#   cyc=53 ecg= 450 spk=00 L1=00010 L2=00000 valid=0 win=7
+#   cyc=54 ecg= 400 spk=10 L1=00000 L2=00010 valid=1 win=1
+#   cyc=55 ecg= 350 spk=00 L1=00000 L2=00000 valid=0 win=7
+#   cyc=56 ecg= 300 spk=10 L1=00000 L2=00000 valid=0 win=7
+#   cyc=57 ecg= 250 spk=00 L1=00010 L2=00000 valid=0 win=7
+#   cyc=58 ecg= 200 spk=10 L1=00000 L2=00000 valid=0 win=7
+#    beat 2 majority-vote class = 1
+# ========================================
+# layer 1 fire counts:
+#    L1 n0 = 7
+#    L1 n1 = 7
+#    L1 n2 = 0
+#    L1 n3 = 0
+#    L1 n4 = 0
+# layer 2 fire counts:
+#    L2 n0 = 3
+#    L2 n1 = 3
+#    L2 n2 = 0
+#    L2 n3 = 0
+#    L2 n4 = 0
+# beat 1 class = 0 (expect 0)
+# beat 2 class = 1 (expect 1)
+# RESULT: PASS -- cascade propagates and classifies
+# ========================================
+# ** Note: $finish    : SCNCHN6_TB.sv(214)
+#    Time: 3965 ns  Iteration: 1  Instance: /SCNCHN6_TB
+# 1
+# Break in Module SCNCHN6_TB at SCNCHN6_TB.sv line 214
+# Can't move the Now cursor.
+# End time: 19:58:10 on Aug 03,2026, Elapsed time: 0:40:04
+# Errors: 0, Warnings: 0

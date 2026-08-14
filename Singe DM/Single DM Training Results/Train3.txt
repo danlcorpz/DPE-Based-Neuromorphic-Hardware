@@ -1,0 +1,56 @@
+Third train: 50 flat Thresholds, leak=4, refrac=2, dm step=4 
+
+Attempting replication of paper results... 
+Inaccurate! V and F are too closely related, they need to be pushed apart for more meaningful distinction. 
+Discrepancies between paper and V4: 
+init hidden = false, changed to true, (train module)
+
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 4 -> 2 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 50.0]
+
+Training DPE_Train (2->5)  epochs=30 lr=0.001 beta=0.95 seed=0
+  epoch   1/30  loss=5.6194
+  epoch  10/30  loss=1.4043
+  epoch  20/30  loss=1.3935
+  epoch  30/30  loss=1.3959
+
+Per-neuron learned weights (row=neuron  [UP,DN):
+   neuron 0: +0.047 +0.278
+   neuron 1: -0.063 +0.311
+   neuron 2: -0.144 +0.333
+   neuron 3: -0.054 +0.311
+   neuron 4: -0.582 +0.287
+
+   angular spread: min pairwise angle = 1.5 deg, mean |cos| = 0.792
+   *** COLLAPSED ***
+quantize: scale=53.2285  int range=[-31,18]  shape=(5, 2)
+Flat HW weight list (len 10): [2, -3, -8, -3, -31, 15, 17, 18, 17, 15]
+
+Using configured thresholds: [50, 50, 50, 50, 50]
+Evaluating on Net: (leak=3, refrac=2, dm step=4...
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q
+     N     31010   12598     550       0      87
+     S      1658     169       7       0       3
+     V      1315    1783      92       0      30
+     F        20     365       2       0       1
+     Q         2       3       0       0       2
+
+Per-class accuracy (true positive rate):
+   N: 31010/44245 = 0.7009
+   S: 169/1837 = 0.0920
+   V: 92/3220 = 0.0286
+   F: 0/388 = 0.0000
+   Q: 2/7 = 0.2857
+
+Overall: 31273/49697 = 0.6293
+Macro-recall (class-balanced): 0.2214

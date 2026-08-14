@@ -1,0 +1,86 @@
+														TRAINING OVERVIEW
+
+The past 9 runs have shown the need for a change to the current inverse frequency weighting. Initially, with trains 1 and 2, we see figures relatively comparable to reference thesis fig 6.3 and 6.5 respectively. Train 2 shows that the V, F, and S vectors are relatively close. Train 3 demonstrates the need for a second DM (step size of 4 chosen to recreate thesis) as well as change to weighting, as Q and N dominate, with the other three meaningful classes left behind.
+
+Train 4 shows the instability of the system without clamps in the accumulator, as completely unexpectedly, the Q neuron dominates completely, a complete reversal from the initial run on seed 0. This was because during training, the Q weight wraps from negative to positive. Clamps were added, and train5 shows q not dominating, but unexpectedly, V is now, much over N. 
+
+Train6 changed the class weight cap from 50 to 10 to minimize Vs dominance, this brings N classification up noticeably. Train7 replicating train2 parameters on seed 2 shows similar results between the two, despite the differing seeds. (weight thresholds increased to 50 tho)
+
+Train 8 shows the effect of trying to minimize Q weight by setting it to 0, and the result of an unresolved wrap issue in the python rtl mirror. Train 9 shows a very promising baseline after correcting the issue and keeping the weight minimization of 8. However, the lack of two other classes is quite disturbing.
+
+In summary, this first round of training resulted in adding accumulator clamps to the membrane potential after the lack thereof resulted in complete Q dominance after the MP wrapped, which made Q be 1 and everything else zero. The immense weight passed to the neuron is because of the unrestrained backpropagation by the other classes during training (q is 0, but all other neurons subtract from weight ad infinitum). After passing the negative extreme weight to Q, the wrap happend because of the lack of membrane potential clamps. Additionally, we see that it is quite hard to get more than two class distinction with this model. I suspect this is because of the extreme weight Q holds.
+
+One thing that should be explore, removes the Q class from training entirely. While this is a marked departure from the previous work, I think it holds incredible promise as Q is 0.01% of data, yet occupies valuable classification space that would best be utilized by the four main classes. However, this alters RTL (hopefully not by much) and removes one of the 5 main AAMI classes. However, with this training set, the ROI may be worth it. Deployment of a SNN detector with only 4 detectors would require literature supporting the idea that in daily life, and even in CVD affected patients, Q signals make up less than 1 percent of the signals.
+
+
+														COMPARISON TO PAPER
+	We can see in the thesis fig 6.3 that it matches our Train 1, both being first runs. This supports the idea that our rtl is very similar and thus comparable. Additionally, Train3 and Fig 6.5 have rough similarities. To properly compare figures, one would have to find a seed that properly pushes V, S, and F apart, attaching Q to be almost identical to one of the classes to maximize class distinction. This can be done, but may take time.
+
+	Notably, the best classwise figure 6.5 can draw comparisons to train7 in its classwise distribution, but overall, the best classwise and overall comes from Train9, demonstrating an impressive and effective classwise distinction above 80% for the N and V classes. It is nearly 20 points better overall, possibly due to the minimization of Q (initially, at least. Training draws it down to negative max, but i guess lucky seed allows it to not interfere too much, as well as the clamping) 
+
+
+														BEST V4 SINGLE DM RUNs:
+
+	Train9 is the best run of V4 had, it specialized completely in N and V, achieving 80% accuracy in two classes. Train 9 minimized Q weights without clamping, leading to the massive negative Q weight because of back prop.
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 12 -> 2 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 0.1]
+
+Training DPE_Train (2->5)  epochs=30 lr=0.001 beta=0.95 seed=2
+  epoch   1/30  loss=2.0560
+  epoch  10/30  loss=1.3742
+  epoch  20/30  loss=1.3789
+  epoch  30/30  loss=1.3871
+
+Per-neuron learned weights (row=neuron  [UP,DN):
+   neuron 0: +0.208 +0.090
+   neuron 1: +0.204 +0.080
+   neuron 2: +0.177 +0.128
+   neuron 3: +0.145 +0.140
+   neuron 4: -4.810 -7.053
+
+   angular spread: min pairwise angle = 2.2 deg, mean |cos| = 0.938
+   *** COLLAPSED ***
+quantize: scale=4.3955  int range=[-31,1]  shape=(5, 2)
+Flat HW weight list (len 10): [1, 1, 1, 1, -21, 0, 0, 1, 1, -31]
+
+Using configured thresholds: [50, 50, 50, 50, 50]
+Evaluating on Net: (leak=12, refrac=4, dm step=12...
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q
+     N     36746       0    7499       0       0
+     S      1741       0      96       0       0
+     V       409       0    2811       0       0
+     F        15       0     373       0       0
+     Q         2       0       5       0       0
+
+Per-class accuracy (true positive rate):
+   N: 36746/44245 = 0.8305
+   S: 0/1837 = 0.0000
+   V: 2811/3220 = 0.8730
+   F: 0/388 = 0.0000
+   Q: 0/7 = 0.0000
+
+Overall: 39557/49697 = 0.7960
+
+From Train10s sweeps, there were some promising results, like this one, improving 9 points overall from train10
+
+
+--- run 31/72 | weights=from_file | thr=[60, 60, 60, 60, 60]->raw[60, 60, 60, 60, 60] leak=2 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    33609       0      92   10544       0
+    S     1613       0       5     219       0
+    V     2459       0       1     760       0
+    F       80       0       0     308       0
+    Q        3       0       1       3       0
+per-class TP: N=0.760  S=0.000  V=0.000  F=0.794  Q=0.000
+overall: 0.6825

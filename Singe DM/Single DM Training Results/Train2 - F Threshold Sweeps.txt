@@ -1,0 +1,74 @@
+Sweeping F thresholds: 30 - 90
+	Notice: V, F, N, and S results are directly influenced by F threshold. Evident from 1st run
+	S improved by dropping thres to 40, also affected by F thres
+	F threshold changes nothing after threshold exceeds 60
+--- run 1/6 | weights=from_file | thr=[50, 40, 50, 30, 50]->raw[50, 40, 50, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    26227    4048       2   13934      34
+    S     1499     113       0     225       0
+    V     1110     873      10    1202      25
+    F       16      66       0     306       0
+    Q        0       2       0       4       1
+per-class TP: N=0.593  S=0.062  V=0.003  F=0.789  Q=0.143
+overall: 0.5364
+
+--- run 2/6 | weights=from_file | thr=[50, 40, 50, 40, 50]->raw[50, 40, 50, 40, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    27839   15741     258     373      34
+    S     1335     478       5      19       0
+    V     1138    1898     118      13      53
+    F       30     358       0       0       0
+    Q        0       6       0       0       1
+per-class TP: N=0.629  S=0.260  V=0.037  F=0.000  Q=0.143
+overall: 0.5722
+
+--- run 3/6 | weights=from_file | thr=[50, 40, 50, 60, 50]->raw[50, 40, 50, 60, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    26627   17374     214       0      30
+    S     1310     520       7       0       0
+    V      995    2116      95       0      14
+    F       19     369       0       0       0
+    Q        0       6       0       0       1
+per-class TP: N=0.602  S=0.283  V=0.030  F=0.000  Q=0.143
+overall: 0.5482
+
+--- run 4/6 | weights=from_file | thr=[50, 40, 50, 70, 50]->raw[50, 40, 50, 70, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    26627   17374     214       0      30
+    S     1310     520       7       0       0
+    V      995    2116      95       0      14
+    F       19     369       0       0       0
+    Q        0       6       0       0       1
+per-class TP: N=0.602  S=0.283  V=0.030  F=0.000  Q=0.143
+overall: 0.5482
+
+--- run 5/6 | weights=from_file | thr=[50, 40, 50, 80, 50]->raw[50, 40, 50, 80, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    26627   17374     214       0      30
+    S     1310     520       7       0       0
+    V      995    2116      95       0      14
+    F       19     369       0       0       0
+    Q        0       6       0       0       1
+per-class TP: N=0.602  S=0.283  V=0.030  F=0.000  Q=0.143
+overall: 0.5482
+
+--- run 6/6 | weights=from_file | thr=[50, 40, 50, 90, 50]->raw[50, 40, 50, 90, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    26627   17374     214       0      30
+    S     1310     520       7       0       0
+    V      995    2116      95       0      14
+    F       19     369       0       0       0
+    Q        0       6       0       0       1
+per-class TP: N=0.602  S=0.283  V=0.030  F=0.000  Q=0.143
+overall: 0.5482
+
+============================================================
+Best minority-class run:
+  run 1/6 | weights=from_file | thr=[50, 40, 50, 30, 50]->raw[50, 40, 50, 30, 50] leak=12 refrac=2
+  (mean S/V/F TP = 0.284, overall = 0.536)

@@ -1,0 +1,453 @@
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+MODE=grid, WEIGHT_SOURCE=file: 1 weight set(s) x 40 config(s) = 40 run(s)
+
+
+--- run 1/40 | weights=from_file | thr=[50, 50, 50, 50, 50]->raw[50, 50, 50, 50, 50] leak=8 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    39932    1451    2815       0      47
+    S     1795      16      24       0       2
+    V     2302     240     537       0     141
+    F      151      26     210       0       1
+    Q        3       1       2       0       1
+per-class TP: N=0.903  S=0.009  V=0.167  F=0.000  Q=0.143
+overall: 0.8147
+
+--- run 2/40 | weights=from_file | thr=[50, 50, 50, 50, 50]->raw[50, 50, 50, 50, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    33006     189   11012       1      37
+    S     1514       3     320       0       0
+    V     1270       3    1939       0       8
+    F       24       0     364       0       0
+    Q        0       0       5       0       2
+per-class TP: N=0.746  S=0.002  V=0.602  F=0.000  Q=0.286
+overall: 0.7033
+
+--- run 3/40 | weights=from_file | thr=[50, 50, 50, 50, 50]->raw[50, 50, 50, 50, 50] leak=16 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    32054      81   12079       1      30
+    S     1407       1     429       0       0
+    V     1253       0    1961       0       6
+    F       22       0     366       0       0
+    Q        0       0       5       0       2
+per-class TP: N=0.724  S=0.001  V=0.609  F=0.000  Q=0.286
+overall: 0.6845
+
+--- run 4/40 | weights=from_file | thr=[50, 50, 50, 50, 50]->raw[50, 50, 50, 50, 50] leak=20 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    31633      38   12543       1      30
+    S     1382       0     455       0       0
+    V     1256       0    1958       0       6
+    F       22       0     366       0       0
+    Q        0       0       5       0       2
+per-class TP: N=0.715  S=0.000  V=0.608  F=0.000  Q=0.286
+overall: 0.6760
+
+--- run 5/40 | weights=from_file | thr=[60, 60, 60, 60, 60]->raw[60, 60, 60, 60, 60] leak=8 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    38909    2177    3072       0      87
+    S     1785      19      29       0       4
+    V     1932     293     755       0     240
+    F      143      24     220       0       1
+    Q        4       1       1       0       1
+per-class TP: N=0.879  S=0.010  V=0.234  F=0.000  Q=0.143
+overall: 0.7985
+
+--- run 6/40 | weights=from_file | thr=[60, 60, 60, 60, 60]->raw[60, 60, 60, 60, 60] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    38572    1532    4033      32      76
+    S     1780      26      26       0       5
+    V     1984      96     910       0     230
+    F       89      11     286       0       2
+    Q        2       0       4       0       1
+per-class TP: N=0.872  S=0.014  V=0.283  F=0.000  Q=0.143
+overall: 0.7950
+
+--- run 7/40 | weights=from_file | thr=[60, 60, 60, 60, 60]->raw[60, 60, 60, 60, 60] leak=16 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    35251     866    8071       0      57
+    S     1735      27      72       0       3
+    V     1503      16    1651       0      50
+    F       23       0     364       0       1
+    Q        2       0       4       0       1
+per-class TP: N=0.797  S=0.015  V=0.513  F=0.000  Q=0.143
+overall: 0.7431
+
+--- run 8/40 | weights=from_file | thr=[60, 60, 60, 60, 60]->raw[60, 60, 60, 60, 60] leak=20 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    34787     546    8864       0      48
+    S     1736      25      73       0       3
+    V     1527      13    1636       0      44
+    F       22       0     366       0       0
+    Q        1       0       5       0       1
+per-class TP: N=0.786  S=0.014  V=0.508  F=0.000  Q=0.143
+overall: 0.7334
+
+--- run 9/40 | weights=from_file | thr=[70, 70, 70, 70, 70]->raw[70, 70, 70, 70, 70] leak=8 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    39059    1899    3134       0     153
+    S     1766      37      28       0       6
+    V     1725     315     810       1     369
+    F      229       2     156       0       1
+    Q        0       2       3       0       2
+per-class TP: N=0.883  S=0.020  V=0.252  F=0.000  Q=0.286
+overall: 0.8030
+
+--- run 10/40 | weights=from_file | thr=[70, 70, 70, 70, 70]->raw[70, 70, 70, 70, 70] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    39514    1924    2664       2     141
+    S     1779      28      23       0       7
+    V     1760     280     812       2     366
+    F      217       3     167       0       1
+    Q        0       2       3       0       2
+per-class TP: N=0.893  S=0.015  V=0.252  F=0.000  Q=0.286
+overall: 0.8120
+
+--- run 11/40 | weights=from_file | thr=[70, 70, 70, 70, 70]->raw[70, 70, 70, 70, 70] leak=16 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    36834    1786    5509       0     116
+    S     1772      20      37       2       6
+    V     1221      32    1689       0     278
+    F       30       0     357       0       1
+    Q        0       0       5       0       2
+per-class TP: N=0.833  S=0.011  V=0.525  F=0.000  Q=0.286
+overall: 0.7756
+
+--- run 12/40 | weights=from_file | thr=[70, 70, 70, 70, 70]->raw[70, 70, 70, 70, 70] leak=20 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    36344    1818    5971       0     112
+    S     1756      38      37       0       6
+    V     1200      28    1722       0     270
+    F       28       0     359       0       1
+    Q        0       0       5       0       2
+per-class TP: N=0.821  S=0.021  V=0.535  F=0.000  Q=0.286
+overall: 0.7668
+
+--- run 13/40 | weights=from_file | thr=[80, 80, 80, 80, 80]->raw[80, 80, 80, 80, 80] leak=8 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    38820     649    4539       5     232
+    S     1771      21      38       0       7
+    V     1515      24    1052       4     625
+    F      159       0     227       0       2
+    Q        2       0       3       0       2
+per-class TP: N=0.877  S=0.011  V=0.327  F=0.000  Q=0.286
+overall: 0.8028
+
+--- run 14/40 | weights=from_file | thr=[80, 80, 80, 80, 80]->raw[80, 80, 80, 80, 80] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    38290     336    5439       0     180
+    S     1781      11      36       0       9
+    V     1650       7    1061       2     500
+    F      100       0     285       0       3
+    Q        2       0       3       0       2
+per-class TP: N=0.865  S=0.006  V=0.330  F=0.000  Q=0.286
+overall: 0.7921
+
+--- run 15/40 | weights=from_file | thr=[80, 80, 80, 80, 80]->raw[80, 80, 80, 80, 80] leak=16 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    38854      35    5171       0     185
+    S     1798       4      28       0       7
+    V     1766       3     906       6     539
+    F       87       0     299       0       2
+    Q        1       0       4       0       2
+per-class TP: N=0.878  S=0.002  V=0.281  F=0.000  Q=0.286
+overall: 0.8002
+
+--- run 16/40 | weights=from_file | thr=[80, 80, 80, 80, 80]->raw[80, 80, 80, 80, 80] leak=20 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    38544      25    5518       0     158
+    S     1795       1      34       0       7
+    V     1482       3    1273       4     458
+    F       62       0     324       0       2
+    Q        2       0       3       0       2
+per-class TP: N=0.871  S=0.001  V=0.395  F=0.000  Q=0.286
+overall: 0.8013
+
+--- run 17/40 | weights=from_file | thr=[90, 90, 90, 90, 90]->raw[90, 90, 90, 90, 90] leak=8 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    38124    1102    4326       3     690
+    S     1762      20      37       0      18
+    V     1247      52    1044       2     875
+    F      124       1     260       0       3
+    Q        1       1       3       0       2
+per-class TP: N=0.862  S=0.011  V=0.324  F=0.000  Q=0.286
+overall: 0.7886
+
+--- run 18/40 | weights=from_file | thr=[90, 90, 90, 90, 90]->raw[90, 90, 90, 90, 90] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    38453    1096    4319       2     375
+    S     1762      26      36       0      13
+    V     1330      41    1027       2     820
+    F      131       1     252       0       4
+    Q        1       1       3       0       2
+per-class TP: N=0.869  S=0.014  V=0.319  F=0.000  Q=0.286
+overall: 0.7950
+
+--- run 19/40 | weights=from_file | thr=[90, 90, 90, 90, 90]->raw[90, 90, 90, 90, 90] leak=16 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    38516    1110    4251       0     368
+    S     1766      26      32       0      13
+    V     1464      34    1021       2     699
+    F      132       3     249       0       4
+    Q        1       1       3       0       2
+per-class TP: N=0.871  S=0.014  V=0.317  F=0.000  Q=0.286
+overall: 0.7961
+
+--- run 20/40 | weights=from_file | thr=[90, 90, 90, 90, 90]->raw[90, 90, 90, 90, 90] leak=20 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    38153     996    4763       0     333
+    S     1766      21      38       0      12
+    V     1437      34    1063       1     685
+    F      105       1     278       0       4
+    Q        1       1       3       0       2
+per-class TP: N=0.862  S=0.011  V=0.330  F=0.000  Q=0.286
+overall: 0.7896
+
+--- run 21/40 | weights=from_file | thr=[100, 100, 100, 100, 100]->raw[100, 100, 100, 100, 100] leak=8 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    36504    1424    4723       2    1592
+    S     1738      26      40       0      33
+    V     1318     161     816       1     924
+    F      181       5     196       0       6
+    Q        1       1       2       0       3
+per-class TP: N=0.825  S=0.014  V=0.253  F=0.000  Q=0.429
+overall: 0.7515
+
+--- run 22/40 | weights=from_file | thr=[100, 100, 100, 100, 100]->raw[100, 100, 100, 100, 100] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    37534    1337    4135       0    1239
+    S     1751      22      34       0      30
+    V     1378     110     804       1     927
+    F      223       2     158       0       5
+    Q        1       1       2       0       3
+per-class TP: N=0.848  S=0.012  V=0.250  F=0.000  Q=0.429
+overall: 0.7719
+
+--- run 23/40 | weights=from_file | thr=[100, 100, 100, 100, 100]->raw[100, 100, 100, 100, 100] leak=16 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    37753    1484    4140       0     868
+    S     1753      25      32       0      27
+    V     1373     116     827       1     903
+    F      218       2     163       0       5
+    Q        1       1       2       0       3
+per-class TP: N=0.853  S=0.014  V=0.257  F=0.000  Q=0.429
+overall: 0.7769
+
+--- run 24/40 | weights=from_file | thr=[100, 100, 100, 100, 100]->raw[100, 100, 100, 100, 100] leak=20 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    37598    1649    4170       0     828
+    S     1754      27      35       0      21
+    V     1291      80     892       0     957
+    F      194       2     187       0       5
+    Q        1       1       2       0       3
+per-class TP: N=0.850  S=0.015  V=0.277  F=0.000  Q=0.429
+overall: 0.7751
+
+--- run 25/40 | weights=from_file | thr=[120, 120, 120, 120, 120]->raw[120, 120, 120, 120, 120] leak=8 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    33758     849    5303       2    4333
+    S     1585      13      35       1     203
+    V     1512     185     451       3    1069
+    F      278       5      96       0       9
+    Q        1       1       2       0       3
+per-class TP: N=0.763  S=0.007  V=0.140  F=0.000  Q=0.429
+overall: 0.6887
+
+--- run 26/40 | weights=from_file | thr=[120, 120, 120, 120, 120]->raw[120, 120, 120, 120, 120] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    34795     829    5315       0    3306
+    S     1694      13      35       0      95
+    V     1584     150     445       1    1040
+    F      323       5      51       0       9
+    Q        1       1       2       0       3
+per-class TP: N=0.786  S=0.007  V=0.138  F=0.000  Q=0.429
+overall: 0.7094
+
+--- run 27/40 | weights=from_file | thr=[120, 120, 120, 120, 120]->raw[120, 120, 120, 120, 120] leak=16 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    34842     776    5370       0    3257
+    S     1734      15      33       0      55
+    V     1693      79     436       1    1011
+    F      354       3      22       0       9
+    Q        1       1       2       0       3
+per-class TP: N=0.787  S=0.008  V=0.135  F=0.000  Q=0.429
+overall: 0.7102
+
+--- run 28/40 | weights=from_file | thr=[120, 120, 120, 120, 120]->raw[120, 120, 120, 120, 120] leak=20 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    34743     798    5440       0    3264
+    S     1732      14      34       0      57
+    V     1717      72     438       1     992
+    F      355       3      21       0       9
+    Q        1       1       2       0       3
+per-class TP: N=0.785  S=0.008  V=0.136  F=0.000  Q=0.429
+overall: 0.7083
+
+--- run 29/40 | weights=from_file | thr=[130, 130, 130, 130, 130]->raw[130, 130, 130, 130, 130] leak=8 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    30930    1075    5525       6    6709
+    S     1202      15      30       1     589
+    V     1266     337     451       3    1163
+    F      258       9     110       0      11
+    Q        2       1       1       0       3
+per-class TP: N=0.699  S=0.008  V=0.140  F=0.000  Q=0.429
+overall: 0.6318
+
+--- run 30/40 | weights=from_file | thr=[130, 130, 130, 130, 130]->raw[130, 130, 130, 130, 130] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    31966     932    5449       1    5897
+    S     1432      13      30       0     362
+    V     1406     252     431       2    1129
+    F      279       7      90       0      12
+    Q        2       1       1       0       3
+per-class TP: N=0.722  S=0.007  V=0.134  F=0.000  Q=0.429
+overall: 0.6522
+
+--- run 31/40 | weights=from_file | thr=[130, 130, 130, 130, 130]->raw[130, 130, 130, 130, 130] leak=16 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    33052     952    5542       0    4699
+    S     1530      15      27       0     265
+    V     1457     233     430       0    1100
+    F      284       7      87       0      10
+    Q        2       1       1       0       3
+per-class TP: N=0.747  S=0.008  V=0.134  F=0.000  Q=0.429
+overall: 0.6741
+
+--- run 32/40 | weights=from_file | thr=[130, 130, 130, 130, 130]->raw[130, 130, 130, 130, 130] leak=20 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    32958    1047    5568       0    4672
+    S     1630      15      27       0     165
+    V     1483     200     433       1    1103
+    F      285       8      85       0      10
+    Q        2       1       1       0       3
+per-class TP: N=0.745  S=0.008  V=0.134  F=0.000  Q=0.429
+overall: 0.6723
+
+--- run 33/40 | weights=from_file | thr=[140, 140, 140, 140, 140]->raw[140, 140, 140, 140, 140] leak=8 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    28520     881    5825      15    9004
+    S      917      15      19       2     884
+    V     1075     539     361       2    1243
+    F      216      24     137       0      11
+    Q        2       1       1       0       3
+per-class TP: N=0.645  S=0.008  V=0.112  F=0.000  Q=0.429
+overall: 0.5815
+
+--- run 34/40 | weights=from_file | thr=[140, 140, 140, 140, 140]->raw[140, 140, 140, 140, 140] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    29510    1106    5708      16    7905
+    S     1152      16      18       1     650
+    V     1180     424     367       2    1247
+    F      228      24     124       0      12
+    Q        2       1       1       0       3
+per-class TP: N=0.667  S=0.009  V=0.114  F=0.000  Q=0.429
+overall: 0.6016
+
+--- run 35/40 | weights=from_file | thr=[140, 140, 140, 140, 140]->raw[140, 140, 140, 140, 140] leak=16 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    29383    1226    5766       9    7861
+    S     1153      17      17       0     650
+    V     1202     418     364       1    1235
+    F      234      23     119       0      12
+    Q        2       1       1       0       3
+per-class TP: N=0.664  S=0.009  V=0.113  F=0.000  Q=0.429
+overall: 0.5990
+
+--- run 36/40 | weights=from_file | thr=[140, 140, 140, 140, 140]->raw[140, 140, 140, 140, 140] leak=20 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    30183    1154    5792       0    7116
+    S     1184      13      17       0     623
+    V     1292     360     363       1    1204
+    F      251      18     107       0      12
+    Q        2       1       1       0       3
+per-class TP: N=0.682  S=0.007  V=0.113  F=0.000  Q=0.429
+overall: 0.6150
+
+--- run 37/40 | weights=from_file | thr=[150, 150, 150, 150, 150]->raw[150, 150, 150, 150, 150] leak=8 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    27017     551    5476      12   11189
+    S      714       8      16       0    1099
+    V     1246     374     331       0    1269
+    F      121      11     242       0      14
+    Q        2       0       2       0       3
+per-class TP: N=0.611  S=0.004  V=0.103  F=0.000  Q=0.429
+overall: 0.5505
+
+--- run 38/40 | weights=from_file | thr=[150, 150, 150, 150, 150]->raw[150, 150, 150, 150, 150] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    27950     408    5588      52   10247
+    S      771       9      15       3    1039
+    V     1378     280     332       3    1227
+    F      137       9     230       0      12
+    Q        2       0       2       0       3
+per-class TP: N=0.632  S=0.005  V=0.103  F=0.000  Q=0.429
+overall: 0.5693
+
+--- run 39/40 | weights=from_file | thr=[150, 150, 150, 150, 150]->raw[150, 150, 150, 150, 150] leak=16 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    28089     817    5340       9    9990
+    S      880      12      17       0     928
+    V     1416     262     282       1    1259
+    F      150      23     203       0      12
+    Q        2       1       1       0       3
+per-class TP: N=0.635  S=0.007  V=0.088  F=0.000  Q=0.429
+overall: 0.5712
+
+--- run 40/40 | weights=from_file | thr=[150, 150, 150, 150, 150]->raw[150, 150, 150, 150, 150] leak=20 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    27742    1085    5375       0   10043
+    S      881      14      16       0     926
+    V     1160     515     282       1    1262
+    F      143      36     197       0      12
+    Q        2       1       1       0       3
+per-class TP: N=0.627  S=0.008  V=0.088  F=0.000  Q=0.429
+overall: 0.5642
+============================================================
+Best minority-class run:
+  run 3/40 | weights=from_file | thr=[50, 50, 50, 50, 50]->raw[50, 50, 50, 50, 50] leak=16 refrac=2
+  (mean S/V/F TP = 0.203, overall = 0.685)

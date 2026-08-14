@@ -1,0 +1,81 @@
+We see that N and F are sufficiently distant from run 4, but Runs 5 and 6 show that N, S, and F do not coexist in this model... why?
+
+maybe we can rerun train, because weights are too identical, dominated by Q's negative weight. Necessitates a change in Q to minimize its pull this next train.
+
+
+I think this shows a need to change the inverse weight training that gives Q too much power. Options:
+	a) Change to Class balanced loss based on Effective number of Samples from inverse weight
+	b) Remove Q entirely from training. Results in an obsolete neuron... a drastic change. 
+	c) explore other options?
+
+Changes so far: Minimized Q inital weight, but still dragged down to neg max during back propagation.
+
+
+MODE=list, WEIGHT_SOURCE=file: 1 weight set(s) x 6 config(s) = 6 run(s)
+
+
+--- run 1/6 | weights=from_file | thr=[50, 50, 50, 10, 50]->raw[50, 50, 50, 10, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N       11       0       0   44234       0
+    S        1       0       0    1836       0
+    V        0       0       0    3220       0
+    F        0       0       0     388       0
+    Q        0       0       0       7       0
+per-class TP: N=0.000  S=0.000  V=0.000  F=1.000  Q=0.000
+overall: 0.0080
+
+--- run 2/6 | weights=from_file | thr=[50, 50, 50, 20, 50]->raw[50, 50, 50, 20, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N     3315       0       0   40930       0
+    S      102       0       0    1735       0
+    V        2       0       0    3218       0
+    F        3       0       0     385       0
+    Q        0       0       0       7       0
+per-class TP: N=0.075  S=0.000  V=0.000  F=0.992  Q=0.000
+overall: 0.0745
+
+--- run 3/6 | weights=from_file | thr=[50, 50, 50, 30, 50]->raw[50, 50, 50, 30, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    18078       0       0   26167       0
+    S     1323       0       0     514       0
+    V       25       0       0    3195       0
+    F        9       0       0     379       0
+    Q        0       0       0       7       0
+per-class TP: N=0.409  S=0.000  V=0.000  F=0.977  Q=0.000
+overall: 0.3714
+
+--- run 4/6 | weights=from_file | thr=[50, 50, 50, 40, 50]->raw[50, 50, 50, 40, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    31054       0       0   13191       0
+    S     1649       0       0     188       0
+    V       85       0       0    3135       0
+    F       12       0       0     376       0
+    Q        1       0       0       6       0
+per-class TP: N=0.702  S=0.000  V=0.000  F=0.969  Q=0.000
+overall: 0.6324
+
+--- run 5/6 | weights=from_file | thr=[50, 50, 50, 50, 50]->raw[50, 50, 50, 50, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    36746       0    7499       0       0
+    S     1741       0      96       0       0
+    V      409       0    2811       0       0
+    F       15       0     373       0       0
+    Q        2       0       5       0       0
+per-class TP: N=0.831  S=0.000  V=0.873  F=0.000  Q=0.000
+overall: 0.7960
+
+--- run 6/6 | weights=from_file | thr=[50, 50, 50, 60, 50]->raw[50, 50, 50, 60, 50] leak=12 refrac=2 ---
+Confusion (rows=true, cols=pred):
+             N       S       V       F       Q
+    N    36746       0    7499       0       0
+    S     1741       0      96       0       0
+    V      409       0    2811       0       0
+    F       15       0     373       0       0
+    Q        2       0       5       0       0
+per-class TP: N=0.831  S=0.000  V=0.873  F=0.000  Q=0.000
+overall: 0.7960

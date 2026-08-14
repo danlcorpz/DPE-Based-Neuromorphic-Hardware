@@ -1,0 +1,105 @@
+Only difference now was changing the weight decay to 0.5, normal has disappeared. Why?
+
+im gonna try going to a 0.25 weight decay, changing seed to 1 
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 80/12 -> 4 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 0.1]
+
+Training DPE_Train (4->5)  epochs=30 lr=0.001 beta=0.95 seed=0
+  epoch   1/30  loss=2.7984
+  epoch  10/30  loss=1.3394
+  epoch  20/30  loss=1.3370
+  epoch  30/30  loss=1.3408
+
+Per-neuron learned weights (row=neuron  [UP,DN):
+   neuron 0: +0.180 +0.027 +0.095 +0.070
+   neuron 1: -0.021 -0.097 +0.111 +0.162
+   neuron 2: -0.256 +0.120 +0.024 +0.168
+   neuron 3: +0.154 +0.110 +0.034 +0.109
+   neuron 4: -0.010 -0.010 -0.039 -0.035
+
+   angular spread: min pairwise angle = 30.0 deg, mean |cos| = 0.456
+   good spread.
+quantize: scale=121.2181  int range=[-31,22]  shape=(5, 4)
+Flat HW weight list (len 20): [22, -3, -31, 19, -1, 3, -12, 15, 13, -1, 12, 13, 3, 4, -5, 9, 20, 20, 13, -4]
+
+Using configured thresholds: [50, 50, 50, 50, 50]
+Evaluating on Net: (leak=12, refrac=4, dm step coarse =80, dm step fine =12)
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q
+     N      8715   33813    1058     659       0
+     S       351    1476       7       3       0
+     V      1383    1506     173     158       0
+     F        19     249      58      62       0
+     Q         4       2       0       1       0
+
+Per-class accuracy (true positive rate):
+   N: 8715/44245 = 0.1970
+   S: 1476/1837 = 0.8035
+   V: 173/3220 = 0.0537
+   F: 62/388 = 0.1598
+   Q: 0/7 = 0.0000
+
+Overall: 10426/49697 = 0.2098
+Macro-recall (class-balanced): 0.2428
+
+
+CHANGED SEED AND WEIGHT DECAY TO 0.25
+Normal is still down, why?
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 80/12 -> 4 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 0.1]
+
+Training DPE_Train (4->5)  epochs=30 lr=0.001 beta=0.95 seed=1
+  epoch   1/30  loss=3.2243
+  epoch  10/30  loss=1.3654
+  epoch  20/30  loss=1.3279
+  epoch  30/30  loss=1.3306
+
+Per-neuron learned weights (row=neuron  [UP,DN):
+   neuron 0: +0.174 +0.043 +0.155 +0.063
+   neuron 1: -0.024 +0.012 +0.209 +0.081
+   neuron 2: -0.250 +0.172 +0.218 +0.107
+   neuron 3: +0.347 +0.000 +0.087 +0.107
+   neuron 4: -0.007 -0.007 -0.026 -0.026
+
+   angular spread: min pairwise angle = 28.2 deg, mean |cos| = 0.556
+   good spread.
+quantize: scale=89.4416  int range=[-22,31]  shape=(5, 4)
+Flat HW weight list (len 20): [16, -2, -22, 31, -1, 4, 1, 15, 0, -1, 14, 19, 19, 8, -2, 6, 7, 10, 10, -2]
+
+Using configured thresholds: [50, 50, 50, 50, 50]
+Evaluating on Net: (leak=12, refrac=4, dm step coarse =80, dm step fine =12)
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q
+     N     12137   20969   10815     324       0
+     S       491    1115     229       2       0
+     V      1249     765    1164      42       0
+     F        45      44     295       4       0
+     Q         3       1       3       0       0
+
+Per-class accuracy (true positive rate):
+   N: 12137/44245 = 0.2743
+   S: 1115/1837 = 0.6070
+   V: 1164/3220 = 0.3615
+   F: 4/388 = 0.0103
+   Q: 0/7 = 0.0000
+
+Overall: 14420/49697 = 0.2902
+Macro-recall (class-balanced): 0.2506

@@ -1,0 +1,186 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/sidew/OneDrive/Desktop/LAB/RESEARCH/V6 Corvus
+vAccumulator
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1785802686
+!i10b 1
+!s100 Q0nM<zn87;Ki][=CBZcId2
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IW^X^OOFRJ5N[J1S2^jJMV1
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+Z5 w1785778306
+Z6 8NEURON6.sv
+Z7 FNEURON6.sv
+!i122 0
+L0 12 81
+Z8 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z9 !s108 1785802686.000000
+!s107 SCNCHN6_TB.sv|SCNCHN6.sv|WTA6.sv|DPE6.sv|NEURON6.sv|DM6.sv|
+Z10 !s90 -reportprogress|300|DM6.sv|NEURON6.sv|DPE6.sv|WTA6.sv|SCNCHN6.sv|SCNCHN6_TB.sv|
+!i113 1
+Z11 tCvgOpt 0
+n@accumulator
+vDeltaModulator6
+R1
+R2
+!i10b 1
+!s100 JOzG=FXiZmKS`6ZRzfkiI0
+R3
+IHF7IE60c`HNFLSNS[c6aj1
+R4
+S1
+R0
+w1785794194
+8DM6.sv
+FDM6.sv
+!i122 0
+L0 1 53
+R8
+r1
+!s85 0
+31
+R9
+Z12 !s107 SCNCHN6_TB.sv|SCNCHN6.sv|WTA6.sv|DPE6.sv|NEURON6.sv|DM6.sv|
+R10
+!i113 1
+R11
+n@delta@modulator6
+vDotProductEngine6
+R1
+R2
+!i10b 1
+!s100 Yj>C>5^m6@z]CKCbLH:QC2
+R3
+IDRGXUY:7R[JSjGg?OKMDf1
+R4
+S1
+R0
+w1785794181
+8DPE6.sv
+FDPE6.sv
+!i122 0
+L0 1 73
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
+n@dot@product@engine6
+vScanChainWrapper6
+R1
+R2
+!i10b 1
+!s100 ^GJ`QRMTV8k14g>88mf?30
+R3
+Ib;k8;Dd:[43YEH[d[:?WI3
+R4
+S1
+R0
+w1785801650
+8SCNCHN6.sv
+FSCNCHN6.sv
+!i122 0
+L0 1 175
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
+n@scan@chain@wrapper6
+vSCNCHN6_TB
+R1
+R2
+!i10b 1
+!s100 0Ch[^?<QcLX_LYB5h@NAD3
+R3
+I1`b5eUPH7^JU4Of5oI0?a1
+R4
+S1
+R0
+w1785802614
+8SCNCHN6_TB.sv
+FSCNCHN6_TB.sv
+!i122 0
+L0 11 206
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
+n@s@c@n@c@h@n6_@t@b
+vSynapseUnit
+R1
+R2
+!i10b 1
+!s100 5kJ5V3`=6UUS0@OU435^O1
+R3
+IdA;LQjj3<jSENlP]z7O0Y0
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 1 10
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
+n@synapse@unit
+vWinnerTakeAll6
+R1
+R2
+!i10b 1
+!s100 =CfOX<^eFGo32d8<^J=3j2
+R3
+I1MLPQdQ_UX60Pm;B7fV@12
+R4
+S1
+R0
+w1785794984
+8WTA6.sv
+FWTA6.sv
+!i122 0
+L0 1 31
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
+n@winner@take@all6

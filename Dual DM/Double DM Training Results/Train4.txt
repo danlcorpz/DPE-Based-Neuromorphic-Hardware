@@ -1,0 +1,74 @@
+So far it seems that input dimensionality matters more than SNN depth for classification. To test that theory, I would like to make a 3 DM system, and compare accuracy to V5. 
+
+Software eval semantics are tiresome, true optimization across seeds is a paper on its own, keep moving with RTL models, evaluating only preliminarily. 
+
+Add weigt decay, 0.5, advance seed, change spike of evidence (threshold) to a flat two across both layers, and refrac is now 1 cycle. 
+
+Another normal only 
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 8 -> 2 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 0.1]
+
+Training DPE_Train (2->5->5)  epochs=30 lr=0.001 beta=0.95 seed=2
+  epoch   1/30  loss=1.5605  L1 rate=0.0652
+  epoch   5/30  loss=1.5000  L1 rate=0.0202
+  epoch  10/30  loss=1.5019  L1 rate=0.0210
+  epoch  15/30  loss=1.5029  L1 rate=0.0211
+  epoch  20/30  loss=1.5009  L1 rate=0.0210
+  epoch  25/30  loss=1.5083  L1 rate=0.0209
+  epoch  30/30  loss=1.4991  L1 rate=0.0207
+
+Per-neuron learned weights (row=neuron  [UP,DN]):
+   neuron 0: +0.000 +0.000
+   neuron 1: +0.092 -0.014
+   neuron 2: +0.164 +0.054
+   neuron 3: +0.000 +0.000
+   neuron 4: +0.190 -0.027
+   angular spread: min pairwise angle = 0.3 deg, mean |cos| = 0.814
+   *** COLLAPSED ***
+
+Per-neuron learned weights (row=neuron  [L1 n0..n4]):
+   neuron 0: +0.000 +0.012 +0.050 +0.000 +0.050
+   neuron 1: +0.000 +0.011 +0.044 +0.000 +0.043
+   neuron 2: +0.000 +0.081 +0.128 -0.000 +0.194
+   neuron 3: -0.000 +0.011 +0.037 -0.000 +0.031
+   neuron 4: -0.000 -0.016 -0.065 +0.000 -0.061
+   angular spread: min pairwise angle = 1.0 deg, mean |cos| = 0.984
+   *** COLLAPSED ***
+
+layer 1: quantize: scale=163.1790  int range=[-4,31]  shape=(5, 2)
+layer 2: quantize: scale=159.5799  int range=[-10,31]  shape=(5, 5)
+Flat HW weight list L1 (len 10): [0, 15, 27, 0, 31, 0, -2, 9, 0, -4]
+Flat HW weight list L2 (len 25): [0, 0, 0, 0, 0, 2, 2, 13, 2, -3, 8, 7, 20, 6, -10, 0, 0, 0, 0, 0, 8, 7, 31, 5, -10]
+
+thresholds L1: [2, 30, 54, 2, 62]
+thresholds L2: [16, 14, 62, 12, 20]
+
+Evaluating on Net over 4000 beats (leak=8/4, refrac=1/1, dm step=8)...
+
+--- spike budget per beat (200 timesteps) ---
+   DM spikes      : 65.18
+   layer 1 fires  : 0.00 13.65 19.73 0.00 13.66
+   layer 2 fires  : 14.65 11.93 10.83 11.27 0.00
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q  silent
+     N      3561       0       0       0       0       0
+     S       148       0       0       0       0       0
+     V       259       0       0       0       0       0
+     F        31       0       0       0       0       0
+     Q         1       0       0       0       0       0
+
+Per-class accuracy (true positive rate):
+   N: 3561/3561 = 1.0000
+   S: 0/148 = 0.0000
+   V: 0/259 = 0.0000
+   F: 0/31 = 0.0000
+   Q: 0/1 = 0.0000

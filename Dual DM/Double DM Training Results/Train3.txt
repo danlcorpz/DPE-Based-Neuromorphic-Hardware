@@ -1,0 +1,71 @@
+Advance seed, change layer 1 leak = 1, refrac for both is 2 instead of 4, dm step of 8.
+
+Class distribution:
+  N:  44245 (89.03%)
+  S:   1837 ( 3.70%)
+  V:   3220 ( 6.48%)
+  F:    388 ( 0.78%)
+  Q:      7 ( 0.01%)
+
+Delta-modulating: 8 -> 2 channels...
+  class weights: [0.222, 10.806, 2.693, 24.641, 0.1]
+
+Training DPE_Train (2->5->5)  epochs=30 lr=0.001 beta=0.95 seed=2
+  epoch   1/30  loss=1.5530  L1 rate=0.0904
+  epoch   5/30  loss=1.2550  L1 rate=0.0873
+  epoch  10/30  loss=1.2246  L1 rate=0.0859
+  epoch  15/30  loss=1.2042  L1 rate=0.0814
+  epoch  20/30  loss=1.1980  L1 rate=0.0769
+  epoch  25/30  loss=1.2198  L1 rate=0.0827
+  epoch  30/30  loss=1.1611  L1 rate=0.0953
+
+Per-neuron learned weights (row=neuron  [UP,DN]):
+   neuron 0: +0.369 -0.384
+   neuron 1: +0.567 -0.003
+   neuron 2: +0.692 -0.116
+   neuron 3: +0.260 -1.753
+   neuron 4: +0.249 -2.114
+   angular spread: min pairwise angle = 1.7 deg, mean |cos| = 0.596
+   *** COLLAPSED ***
+
+Per-neuron learned weights (row=neuron  [L1 n0..n4]):
+   neuron 0: +0.264 +0.227 +0.091 +0.069 +0.219
+   neuron 1: +0.222 +0.386 -0.049 +0.007 +0.404
+   neuron 2: +0.006 +0.161 +0.156 +0.710 +0.271
+   neuron 3: +0.466 +0.233 +0.039 -0.321 +0.026
+   neuron 4: -2.041 -2.510 -0.963 -5.427 -1.064
+   angular spread: min pairwise angle = 23.5 deg, mean |cos| = 0.532
+   good spread.
+
+layer 1: quantize: scale=14.6621  int range=[-31,10]  shape=(5, 2)
+layer 2: quantize: scale=5.7126  int range=[-31,4]  shape=(5, 5)
+Flat HW weight list L1 (len 10): [5, 8, 10, 4, 4, -6, 0, -2, -26, -31]
+Flat HW weight list L2 (len 25): [2, 1, 0, 3, -12, 1, 2, 1, 1, -14, 1, 0, 1, 0, -6, 0, 0, 4, -2, -31, 1, 2, 2, 0, -6]
+
+thresholds L1: [6, 8, 10, 26, 31]
+thresholds L2: [4, 4, 8, 6, 62]
+
+Evaluating on Net over 4000 beats (leak=8/4, refrac=2/2, dm step=8)...
+
+--- spike budget per beat (200 timesteps) ---
+   DM spikes      : 65.18
+   layer 1 fires  : 4.80 20.14 16.36 0.15 0.09
+   layer 2 fires  : 5.26 4.83 0.03 0.14 0.00
+
+Confusion Matrix (rows=true, cols=predicted):
+               N       S       V       F       Q  silent
+     N      3366     195       0       0       0       0
+     S       142       6       0       0       0       0
+     V       241      18       0       0       0       0
+     F        12      19       0       0       0       0
+     Q         1       0       0       0       0       0
+
+Per-class accuracy (true positive rate):
+   N: 3366/3561 = 0.9452
+   S: 6/148 = 0.0405
+   V: 0/259 = 0.0000
+   F: 0/31 = 0.0000
+   Q: 0/1 = 0.0000
+
+Overall: 3372/4000 = 0.8430
+Macro-recall (class-balanced): 0.1972
