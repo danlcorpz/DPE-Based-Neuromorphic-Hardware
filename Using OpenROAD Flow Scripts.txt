@@ -1,0 +1,47 @@
+	Congratulations on a successful local installation of OpenROAD Flow Scripts! The following guide has been constructed using a local install, so commands may not transfer directly to OpenROAD flow scripts instances run using Docker or Bazel.
+
+DESIGN FLOW TEST RUN
+
+	We will conduct the full RTL to GDSII design flow using the example "spm" design in the GitHub documentation. The goal is familiarization with setting up the scripts supervising the flow.
+
+1. Create the Verilog source files directory based on the top module name. First, we navigate into the "flow" folder, followed by the "designs" and source "src" folder. Make a directory called "spm"
+
+	cd flow
+	cd designs
+	cd src
+	mkdir spm
+
+2. Create the source RTL verilog file inside the new directory "spm". 
+	
+	vi spm.v
+	
+   Go to the following link and copy the following code into the new spm.v file.
+
+	https://raw.githubusercontent.com/The-OpenROAD-Project/OpenLane/master/designs/spm/src/spm.v
+	
+   To exit the vim editor window in Linux , hit the "esc" button, followed by typing ":wq". 
+
+3. We will now make a matching "spm" directory inside the folder of our desired design package. This is where we will place the configuration file. 
+
+	cd ..
+	cd ..
+	cd gf180
+	mkdir spm
+
+4. Create config.mk to define design configuration.
+
+	vi config.mk
+
+   Copy the following into the new config.mk file.
+
+	export PLATFORM         = gf180
+
+	export DESIGN_NAME      = spm
+
+	export VERILOG_FILES    = $(sort $(wildcard ./designs/src/$(DESIGN_NICKNAME)/*.v))
+	export SDC_FILE         = ./designs/$(PLATFORM)/$(DESIGN_NICKNAME)/constraint.sdc
+
+	export CORE_UTILIZATION = 40
+	export PLACE_DENSITY    = 0.60
+
+	export TNS_END_PERCENT  = 100
