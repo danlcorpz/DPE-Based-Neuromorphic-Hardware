@@ -54,3 +54,28 @@ Also, to troubleshoot the synth process use:
 
 	yosys -p 'read_slang ./designs/src/dpe/dpe.sv'
 
+EXTRACT PARASITIC VIEW, EXTRACTION
+
+After successful routing, we can conduct post layout timing analysis. We do this by extracting parasitics. The Openroad tool in our chain can do this.
+
+1. Enter OpenRoad shell 
+
+	cd OpenROAD-flow-scripts/flow
+	source ../env.sh
+	openroad
+
+2. Now load the design by 
+
+	read_lef platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
+	read_liberty platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+	read_db results/sky130hd/dpe/base/6_final.odb
+	read_sdc results/sky130hd/dpe/base/6_final.sdc
+	read_spef results/sky130hd/dpe/base/6_final.spef
+
+3. After loading the post layout design data, we can execute necessary commands for post layout timing analysis
+	
+	report_worst_slack
+	report_tns
+	report_checks -path_delay max -fields {slew cap input_pin} -digits 3
+	report_checks -path_delay min -fields {slew cap input_pin} -digits 3
+	
