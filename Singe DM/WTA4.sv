@@ -13,7 +13,7 @@ module WinnerTakeAll4 #(
     always_comb begin
         winner_class  = {CLS_W{1'b1}};
         valid         = 1'b0;
-        winner_onehot = '0;
+        winner      = '0;
         reset_others  = '0;
         if (enable) begin
             any_fire = |fire;

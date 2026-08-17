@@ -67,7 +67,9 @@ module Accumulator #(
                      (next_accum < 0)  ? (next_accum + 1) : next_accum;
 
     always_ff @(posedge clk or posedge rst) begin
-        if (rst || !enable) begin
+        if (rst) begin
+            mp <= '0; leak_counter <= '0; refrac_cnt <= '0; fire <= 1'b0;
+        end else if (!enable) begin
             mp <= '0; leak_counter <= '0; refrac_cnt <= '0; fire <= 1'b0;
         end else if (beat_clear) begin
             mp <= '0; leak_counter <= '0; refrac_cnt <= '0; fire <= 1'b0;
